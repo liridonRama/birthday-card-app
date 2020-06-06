@@ -3,24 +3,14 @@ package main
 import (
 	"fmt"
 
-	models "github.com/liridonRama/birthday-card-app/models/server/models"
-	"go.mongodb.org/mongo-driver/bson/primitive"
+	"github.com/gin-gonic/gin"
+	"github.com/liridonRama/birthday-card-app/src/services"
 )
 
 func main() {
-	// r := gin.Default()
-	// r.GET("/ping", func(c *gin.Context) {
-	// 	c.JSON(200, gin.H{
-	// 		"message": "pong",
-	// 	})
-	// })
-	// r.Run()
+	services.InitServer()
+}
 
-	u := models.User{
-		ID:       primitive.NewObjectID(),
-		Email:    "liridon.rama.ch@gmail.com",
-		Password: "1233",
-	}
-	u.HashPassword()
-	fmt.Println(u)
+func CheckIfAuthorized(c *gin.Context) {
+	fmt.Println("password checked")
 }

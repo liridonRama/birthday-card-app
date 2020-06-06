@@ -1,6 +1,7 @@
 package models
 
 import (
+	"fmt"
 	"log"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -22,6 +23,7 @@ func (u *User) HashPassword() {
 	if err != nil {
 		log.Panicln(err)
 	}
+	fmt.Println(u.Password)
 
 	u.Password = string(hash)
 }
